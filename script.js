@@ -32,13 +32,14 @@ quoteInputElement.addEventListener('input', () => {
 async function getNextQuote() {
     const resp = await fetch(RANDOM_QUOTE_API_URL)
     const data = await resp.json()
+    const quotes = data.quote
     data.map(contents => {
-        quoteDisplayElement.innerText = contents.quote
+        quoteDisplayElement.innerText = quotes
     })
 
     /*Splitting Quote into indivisual span*/
     quoteDisplayElement.innerHTML = ''    
-    quote.split('').forEach(character => {
+    quotes.split('').forEach(character => {
         const characterSpan = document.createElement('span')
         characterSpan.innerText = character
         quoteDisplayElement.appendChild(characterSpan)

@@ -65,6 +65,7 @@ function timeLimit() {
   let x = setInterval(() => {
     if (time < 0 || complete) {
       clearInterval(x);
+      getNextQuote();
       complete = false;
     } else {
       timerElement.innerHTML = time;

@@ -66,6 +66,7 @@ function timeLimit() {
     if (time < 0 || complete) {
       clearInterval(x);
       complete = false;
+      getNextQuote();
     } else {
       timerElement.innerHTML = time;
       time--;
